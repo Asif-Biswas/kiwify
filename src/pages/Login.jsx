@@ -9,11 +9,12 @@ export default function Login() {
     const [passwordError, setPasswordError] = React.useState(false);
 
     const validateForm = () => {
-        focusOutEmail()
-        focusOutPassword()
-        if (emailError || passwordError) return;
-        // submit form
-        alert("Form submitted");
+        const emailValid = focusOutEmail();
+        const passwordValid = focusOutPassword();
+        if (emailValid && passwordValid) {
+            // submit form
+            alert("Form submitted");
+        }
     }
 
     const focusOutEmail = () => {

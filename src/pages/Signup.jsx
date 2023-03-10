@@ -14,10 +14,9 @@ export default function Signup() {
 
 
     const validateForm = () => {
-        focusOutEmail()
-        focusOutEmail2()
-        focusOutPassword()
-        if (emailError || email2Error || passwordError) return;
+        const emailValid = focusOutEmail();
+        const email2Valid = focusOutEmail2();
+        const passwordValid = focusOutPassword();
         
         if (!checkbox) {
             setCheckboxError(true);
@@ -25,8 +24,10 @@ export default function Signup() {
         } else {
             setCheckboxError(false);
         }
-        // submit form
-        alert("Form submitted");
+
+        if (emailValid && email2Valid && passwordValid && checkbox) {
+            alert("Form submitted");
+        }
     }
 
     const focusOutEmail = () => {
